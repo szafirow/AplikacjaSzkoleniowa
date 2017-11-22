@@ -1,0 +1,13 @@
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\bin\Debug\AplikacjaSzkoleniowa.exe.config
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\bin\Debug\AplikacjaSzkoleniowa.exe
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\bin\Debug\AplikacjaSzkoleniowa.pdb
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.csprojResolveAssemblyReference.cache
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Properties.Resources.resources
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.csproj.GenerateResource.Cache
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.csproj.CoreCompileInputs.cache
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.exe
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.pdb
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_login.resources
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_main.resources
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_participant.resources
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_training.resources
