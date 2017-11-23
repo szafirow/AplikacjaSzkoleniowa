@@ -33,9 +33,6 @@ namespace AplikacjaSzkoleniowa
     partial void Insertcountries(countries instance);
     partial void Updatecountries(countries instance);
     partial void Deletecountries(countries instance);
-    partial void Inserttrainings(trainings instance);
-    partial void Updatetrainings(trainings instance);
-    partial void Deletetrainings(trainings instance);
     partial void Insertcurrency(currency instance);
     partial void Updatecurrency(currency instance);
     partial void Deletecurrency(currency instance);
@@ -54,6 +51,9 @@ namespace AplikacjaSzkoleniowa
     partial void Insertusers(users instance);
     partial void Updateusers(users instance);
     partial void Deleteusers(users instance);
+    partial void Inserttrainings(trainings instance);
+    partial void Updatetrainings(trainings instance);
+    partial void Deletetrainings(trainings instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -91,14 +91,6 @@ namespace AplikacjaSzkoleniowa
 			get
 			{
 				return this.GetTable<countries>();
-			}
-		}
-		
-		public System.Data.Linq.Table<trainings> trainings
-		{
-			get
-			{
-				return this.GetTable<trainings>();
 			}
 		}
 		
@@ -147,6 +139,14 @@ namespace AplikacjaSzkoleniowa
 			get
 			{
 				return this.GetTable<users>();
+			}
+		}
+		
+		public System.Data.Linq.Table<trainings> trainings
+		{
+			get
+			{
+				return this.GetTable<trainings>();
 			}
 		}
 	}
@@ -334,401 +334,6 @@ namespace AplikacjaSzkoleniowa
 		{
 			this.SendPropertyChanging();
 			entity.countries = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.trainings")]
-	public partial class trainings : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _id_trainings;
-		
-		private string _name;
-		
-		private string _business;
-		
-		private string _leader;
-		
-		private System.Nullable<System.DateTime> _start;
-		
-		private System.Nullable<System.DateTime> _finish;
-		
-		private System.Nullable<decimal> _price;
-		
-		private System.Nullable<decimal> _id_currency;
-		
-		private string _description;
-		
-		private System.Nullable<decimal> _slot;
-		
-		private System.Nullable<bool> _active;
-		
-		private System.Nullable<System.DateTime> _date_add;
-		
-		private EntitySet<participants_trainings> _participants_trainings;
-		
-		private EntityRef<currency> _currency;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_trainingsChanging(decimal value);
-    partial void Onid_trainingsChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnbusinessChanging(string value);
-    partial void OnbusinessChanged();
-    partial void OnleaderChanging(string value);
-    partial void OnleaderChanged();
-    partial void OnstartChanging(System.Nullable<System.DateTime> value);
-    partial void OnstartChanged();
-    partial void OnfinishChanging(System.Nullable<System.DateTime> value);
-    partial void OnfinishChanged();
-    partial void OnpriceChanging(System.Nullable<decimal> value);
-    partial void OnpriceChanged();
-    partial void Onid_currencyChanging(System.Nullable<decimal> value);
-    partial void Onid_currencyChanged();
-    partial void OndescriptionChanging(string value);
-    partial void OndescriptionChanged();
-    partial void OnslotChanging(System.Nullable<decimal> value);
-    partial void OnslotChanged();
-    partial void OnactiveChanging(System.Nullable<bool> value);
-    partial void OnactiveChanged();
-    partial void Ondate_addChanging(System.Nullable<System.DateTime> value);
-    partial void Ondate_addChanged();
-    #endregion
-		
-		public trainings()
-		{
-			this._participants_trainings = new EntitySet<participants_trainings>(new Action<participants_trainings>(this.attach_participants_trainings), new Action<participants_trainings>(this.detach_participants_trainings));
-			this._currency = default(EntityRef<currency>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trainings", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal id_trainings
-		{
-			get
-			{
-				return this._id_trainings;
-			}
-			set
-			{
-				if ((this._id_trainings != value))
-				{
-					this.Onid_trainingsChanging(value);
-					this.SendPropertyChanging();
-					this._id_trainings = value;
-					this.SendPropertyChanged("id_trainings");
-					this.Onid_trainingsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business", DbType="VarChar(255)")]
-		public string business
-		{
-			get
-			{
-				return this._business;
-			}
-			set
-			{
-				if ((this._business != value))
-				{
-					this.OnbusinessChanging(value);
-					this.SendPropertyChanging();
-					this._business = value;
-					this.SendPropertyChanged("business");
-					this.OnbusinessChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_leader", DbType="VarChar(255)")]
-		public string leader
-		{
-			get
-			{
-				return this._leader;
-			}
-			set
-			{
-				if ((this._leader != value))
-				{
-					this.OnleaderChanging(value);
-					this.SendPropertyChanging();
-					this._leader = value;
-					this.SendPropertyChanged("leader");
-					this.OnleaderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start", DbType="DateTime")]
-		public System.Nullable<System.DateTime> start
-		{
-			get
-			{
-				return this._start;
-			}
-			set
-			{
-				if ((this._start != value))
-				{
-					this.OnstartChanging(value);
-					this.SendPropertyChanging();
-					this._start = value;
-					this.SendPropertyChanged("start");
-					this.OnstartChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finish", DbType="DateTime")]
-		public System.Nullable<System.DateTime> finish
-		{
-			get
-			{
-				return this._finish;
-			}
-			set
-			{
-				if ((this._finish != value))
-				{
-					this.OnfinishChanging(value);
-					this.SendPropertyChanging();
-					this._finish = value;
-					this.SendPropertyChanged("finish");
-					this.OnfinishChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Money")]
-		public System.Nullable<decimal> price
-		{
-			get
-			{
-				return this._price;
-			}
-			set
-			{
-				if ((this._price != value))
-				{
-					this.OnpriceChanging(value);
-					this.SendPropertyChanging();
-					this._price = value;
-					this.SendPropertyChanged("price");
-					this.OnpriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_currency", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> id_currency
-		{
-			get
-			{
-				return this._id_currency;
-			}
-			set
-			{
-				if ((this._id_currency != value))
-				{
-					if (this._currency.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_currencyChanging(value);
-					this.SendPropertyChanging();
-					this._id_currency = value;
-					this.SendPropertyChanged("id_currency");
-					this.Onid_currencyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string description
-		{
-			get
-			{
-				return this._description;
-			}
-			set
-			{
-				if ((this._description != value))
-				{
-					this.OndescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._description = value;
-					this.SendPropertyChanged("description");
-					this.OndescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0)")]
-		public System.Nullable<decimal> slot
-		{
-			get
-			{
-				return this._slot;
-			}
-			set
-			{
-				if ((this._slot != value))
-				{
-					this.OnslotChanging(value);
-					this.SendPropertyChanging();
-					this._slot = value;
-					this.SendPropertyChanged("slot");
-					this.OnslotChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
-		public System.Nullable<bool> active
-		{
-			get
-			{
-				return this._active;
-			}
-			set
-			{
-				if ((this._active != value))
-				{
-					this.OnactiveChanging(value);
-					this.SendPropertyChanging();
-					this._active = value;
-					this.SendPropertyChanged("active");
-					this.OnactiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime")]
-		public System.Nullable<System.DateTime> date_add
-		{
-			get
-			{
-				return this._date_add;
-			}
-			set
-			{
-				if ((this._date_add != value))
-				{
-					this.Ondate_addChanging(value);
-					this.SendPropertyChanging();
-					this._date_add = value;
-					this.SendPropertyChanged("date_add");
-					this.Ondate_addChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trainings_participants_trainings", Storage="_participants_trainings", ThisKey="id_trainings", OtherKey="id_trainings")]
-		public EntitySet<participants_trainings> participants_trainings
-		{
-			get
-			{
-				return this._participants_trainings;
-			}
-			set
-			{
-				this._participants_trainings.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="currency_trainings", Storage="_currency", ThisKey="id_currency", OtherKey="id_currency", IsForeignKey=true)]
-		public currency currency
-		{
-			get
-			{
-				return this._currency.Entity;
-			}
-			set
-			{
-				currency previousValue = this._currency.Entity;
-				if (((previousValue != value) 
-							|| (this._currency.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._currency.Entity = null;
-						previousValue.trainings.Remove(this);
-					}
-					this._currency.Entity = value;
-					if ((value != null))
-					{
-						value.trainings.Add(this);
-						this._id_currency = value.id_currency;
-					}
-					else
-					{
-						this._id_currency = default(Nullable<decimal>);
-					}
-					this.SendPropertyChanged("currency");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_participants_trainings(participants_trainings entity)
-		{
-			this.SendPropertyChanging();
-			entity.trainings = this;
-		}
-		
-		private void detach_participants_trainings(participants_trainings entity)
-		{
-			this.SendPropertyChanging();
-			entity.trainings = null;
 		}
 	}
 	
@@ -1922,6 +1527,401 @@ namespace AplikacjaSzkoleniowa
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.trainings")]
+	public partial class trainings : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _id_trainings;
+		
+		private string _name;
+		
+		private string _business;
+		
+		private string _leader;
+		
+		private System.Nullable<System.DateTime> _start;
+		
+		private System.Nullable<System.DateTime> _finish;
+		
+		private System.Nullable<decimal> _price;
+		
+		private System.Nullable<decimal> _id_currency;
+		
+		private string _description;
+		
+		private System.Nullable<decimal> _slot;
+		
+		private System.Nullable<bool> _active;
+		
+		private System.Nullable<System.DateTime> _date_add;
+		
+		private EntitySet<participants_trainings> _participants_trainings;
+		
+		private EntityRef<currency> _currency;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_trainingsChanging(decimal value);
+    partial void Onid_trainingsChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnbusinessChanging(string value);
+    partial void OnbusinessChanged();
+    partial void OnleaderChanging(string value);
+    partial void OnleaderChanged();
+    partial void OnstartChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartChanged();
+    partial void OnfinishChanging(System.Nullable<System.DateTime> value);
+    partial void OnfinishChanged();
+    partial void OnpriceChanging(System.Nullable<decimal> value);
+    partial void OnpriceChanged();
+    partial void Onid_currencyChanging(System.Nullable<decimal> value);
+    partial void Onid_currencyChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnslotChanging(System.Nullable<decimal> value);
+    partial void OnslotChanged();
+    partial void OnactiveChanging(System.Nullable<bool> value);
+    partial void OnactiveChanged();
+    partial void Ondate_addChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_addChanged();
+    #endregion
+		
+		public trainings()
+		{
+			this._participants_trainings = new EntitySet<participants_trainings>(new Action<participants_trainings>(this.attach_participants_trainings), new Action<participants_trainings>(this.detach_participants_trainings));
+			this._currency = default(EntityRef<currency>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trainings", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal id_trainings
+		{
+			get
+			{
+				return this._id_trainings;
+			}
+			set
+			{
+				if ((this._id_trainings != value))
+				{
+					this.Onid_trainingsChanging(value);
+					this.SendPropertyChanging();
+					this._id_trainings = value;
+					this.SendPropertyChanged("id_trainings");
+					this.Onid_trainingsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business", DbType="VarChar(255)")]
+		public string business
+		{
+			get
+			{
+				return this._business;
+			}
+			set
+			{
+				if ((this._business != value))
+				{
+					this.OnbusinessChanging(value);
+					this.SendPropertyChanging();
+					this._business = value;
+					this.SendPropertyChanged("business");
+					this.OnbusinessChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_leader", DbType="VarChar(255)")]
+		public string leader
+		{
+			get
+			{
+				return this._leader;
+			}
+			set
+			{
+				if ((this._leader != value))
+				{
+					this.OnleaderChanging(value);
+					this.SendPropertyChanging();
+					this._leader = value;
+					this.SendPropertyChanged("leader");
+					this.OnleaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start", DbType="DateTime")]
+		public System.Nullable<System.DateTime> start
+		{
+			get
+			{
+				return this._start;
+			}
+			set
+			{
+				if ((this._start != value))
+				{
+					this.OnstartChanging(value);
+					this.SendPropertyChanging();
+					this._start = value;
+					this.SendPropertyChanged("start");
+					this.OnstartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finish", DbType="DateTime")]
+		public System.Nullable<System.DateTime> finish
+		{
+			get
+			{
+				return this._finish;
+			}
+			set
+			{
+				if ((this._finish != value))
+				{
+					this.OnfinishChanging(value);
+					this.SendPropertyChanging();
+					this._finish = value;
+					this.SendPropertyChanged("finish");
+					this.OnfinishChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Money")]
+		public System.Nullable<decimal> price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_currency", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_currency
+		{
+			get
+			{
+				return this._id_currency;
+			}
+			set
+			{
+				if ((this._id_currency != value))
+				{
+					if (this._currency.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_currencyChanging(value);
+					this.SendPropertyChanging();
+					this._id_currency = value;
+					this.SendPropertyChanged("id_currency");
+					this.Onid_currencyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0)")]
+		public System.Nullable<decimal> slot
+		{
+			get
+			{
+				return this._slot;
+			}
+			set
+			{
+				if ((this._slot != value))
+				{
+					this.OnslotChanging(value);
+					this.SendPropertyChanging();
+					this._slot = value;
+					this.SendPropertyChanged("slot");
+					this.OnslotChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this.OnactiveChanging(value);
+					this.SendPropertyChanging();
+					this._active = value;
+					this.SendPropertyChanged("active");
+					this.OnactiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date_add
+		{
+			get
+			{
+				return this._date_add;
+			}
+			set
+			{
+				if ((this._date_add != value))
+				{
+					this.Ondate_addChanging(value);
+					this.SendPropertyChanging();
+					this._date_add = value;
+					this.SendPropertyChanged("date_add");
+					this.Ondate_addChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="trainings_participants_trainings", Storage="_participants_trainings", ThisKey="id_trainings", OtherKey="id_trainings")]
+		public EntitySet<participants_trainings> participants_trainings
+		{
+			get
+			{
+				return this._participants_trainings;
+			}
+			set
+			{
+				this._participants_trainings.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="currency_trainings", Storage="_currency", ThisKey="id_currency", OtherKey="id_currency", IsForeignKey=true)]
+		public currency currency
+		{
+			get
+			{
+				return this._currency.Entity;
+			}
+			set
+			{
+				currency previousValue = this._currency.Entity;
+				if (((previousValue != value) 
+							|| (this._currency.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._currency.Entity = null;
+						previousValue.trainings.Remove(this);
+					}
+					this._currency.Entity = value;
+					if ((value != null))
+					{
+						value.trainings.Add(this);
+						this._id_currency = value.id_currency;
+					}
+					else
+					{
+						this._id_currency = default(Nullable<decimal>);
+					}
+					this.SendPropertyChanged("currency");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_participants_trainings(participants_trainings entity)
+		{
+			this.SendPropertyChanging();
+			entity.trainings = this;
+		}
+		
+		private void detach_participants_trainings(participants_trainings entity)
+		{
+			this.SendPropertyChanging();
+			entity.trainings = null;
 		}
 	}
 }

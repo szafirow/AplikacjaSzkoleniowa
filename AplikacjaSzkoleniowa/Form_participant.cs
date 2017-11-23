@@ -98,7 +98,7 @@ namespace AplikacjaSzkoleniowa
                 }
                 else
                 {
-                    MessageBox.Show("Blednie wypelniony formularz");
+                    MessageBox.Show("Blednie wypelniony formularz!");
                 }
                     
             }

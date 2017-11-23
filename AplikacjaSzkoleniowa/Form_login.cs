@@ -31,23 +31,24 @@ namespace AplikacjaSzkoleniowa
 
                 if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
                 {
-                    MessageBox.Show("Nie wypelniles pol formularza!");
+                    MessageBox.Show("You did not complete the form!");
                 }
                 else
                 {
+                    
                     var count = (from u in db.users
-                                 where u.login.Contains(textBox1.Text) & u.password.Contains(textBox2.Text)
+                                 where u.login.Contains(textBox1.Text) & u.password.Contains(textBox2.Text) & u.active == true
                                  select u).Count();
                     //MessageBox.Show(count.ToString());
                     if (count >= 1)
                     {
-                        Form_main form_main = new Form_main();
+                        Form_main form_main = new Form_main(textBox1.Text);
                         form_main.Show();
                         Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Błędne dane logowania!");
+                        MessageBox.Show("Wrongly completed form. Please correct errors!");
                     }
                 }
                

@@ -10,17 +10,38 @@ using System.Windows.Forms;
 
 namespace AplikacjaSzkoleniowa
 {
+
     public partial class Form_main : Form
     {
-        public Form_main()
+        DataClasses1DataContext db;
+        String temp;
+        public Form_main(string t)
         {
+            temp = t;
             InitializeComponent();
+        }
+
+        private void Form_main_Load(object sender, EventArgs e)
+        {
+            using (db = new DataClasses1DataContext())
+            {
+                var count = (from u in db.users
+                             where u.login.Contains(this.temp) & u.active == true
+                             select u).Count();
+                if (count >= 1)
+                {
+                    label3.Text = "Logged in as: " + this.temp;
+                    label2.Text = "Online";
+                }
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form_training form_training = new Form_training();
             form_training.Show();
+            this.Hide();
         }
 
 
@@ -42,6 +63,6 @@ namespace AplikacjaSzkoleniowa
             form_login.Show();
         }
 
-       
+ 
     }
 }

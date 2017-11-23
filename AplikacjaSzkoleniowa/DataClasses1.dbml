@@ -10,24 +10,6 @@
       <Association Name="countries_participants" Member="participants" ThisKey="id_countries" OtherKey="id_countries" Type="participants" />
     </Type>
   </Table>
-  <Table Name="dbo.trainings" Member="trainings">
-    <Type Name="trainings">
-      <Column Name="id_trainings" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="business" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="leader" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="start" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="finish" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="id_currency" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="slot" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
-      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="date_add" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="trainings_participants_trainings" Member="participants_trainings" ThisKey="id_trainings" OtherKey="id_trainings" Type="participants_trainings" />
-      <Association Name="currency_trainings" Member="currency" ThisKey="id_currency" OtherKey="id_currency" Type="currency" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.currency" Member="currency">
     <Type Name="currency">
       <Column Name="id_currency" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -86,6 +68,24 @@
       <Column Name="password" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="date_add" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.trainings" Member="trainings">
+    <Type Name="trainings">
+      <Column Name="id_trainings" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="business" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="leader" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="start" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="finish" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="id_currency" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="slot" Type="System.Decimal" DbType="Decimal(3,0)" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="date_add" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="trainings_participants_trainings" Member="participants_trainings" ThisKey="id_trainings" OtherKey="id_trainings" Type="participants_trainings" />
+      <Association Name="currency_trainings" Member="currency" ThisKey="id_currency" OtherKey="id_currency" Type="currency" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
