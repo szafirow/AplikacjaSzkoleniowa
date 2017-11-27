@@ -13,8 +13,10 @@ namespace AplikacjaSzkoleniowa
     public partial class Form_training : Form
     {
         DataClasses1DataContext db;
-        public Form_training()
+        String temp;
+        public Form_training(string login)
         {
+            temp = login;
             InitializeComponent();
         }
 
@@ -26,6 +28,8 @@ namespace AplikacjaSzkoleniowa
                 comboBox1.ValueMember = "id_currency";
                 comboBox1.DataSource = db.currency.ToList<currency>();
             }
+            label11.Text = "Logged in as: " + this.temp;
+            label9.Text = "Online";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,9 +84,8 @@ namespace AplikacjaSzkoleniowa
         }
         
         private void button2_Click(object sender, EventArgs e)
-        {
-           
-            Form_main form_main = new Form_main("a");
+        { 
+            Form_main form_main = new Form_main(this.temp);
             form_main.Show();
             this.Hide();
         }

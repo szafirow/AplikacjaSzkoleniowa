@@ -37,12 +37,13 @@ namespace AplikacjaSzkoleniowa
                 {
                     
                     var count = (from u in db.users
-                                 where u.login.Contains(textBox1.Text) & u.password.Contains(textBox2.Text) & u.active == true
+                                 where u.login == textBox1.Text && u.password ==textBox2.Text && u.active == true
                                  select u).Count();
                     //MessageBox.Show(count.ToString());
                     if (count >= 1)
                     {
-                        Form_main form_main = new Form_main(textBox1.Text);
+                        string login = textBox1.Text;
+                        Form_main form_main = new Form_main(login);
                         form_main.Show();
                         Hide();
                     }

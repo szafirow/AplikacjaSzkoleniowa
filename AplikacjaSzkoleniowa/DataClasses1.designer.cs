@@ -33,6 +33,9 @@ namespace AplikacjaSzkoleniowa
     partial void Insertcountries(countries instance);
     partial void Updatecountries(countries instance);
     partial void Deletecountries(countries instance);
+    partial void Insertusers(users instance);
+    partial void Updateusers(users instance);
+    partial void Deleteusers(users instance);
     partial void Insertcurrency(currency instance);
     partial void Updatecurrency(currency instance);
     partial void Deletecurrency(currency instance);
@@ -48,9 +51,6 @@ namespace AplikacjaSzkoleniowa
     partial void Insertparticipants_trainings(participants_trainings instance);
     partial void Updateparticipants_trainings(participants_trainings instance);
     partial void Deleteparticipants_trainings(participants_trainings instance);
-    partial void Insertusers(users instance);
-    partial void Updateusers(users instance);
-    partial void Deleteusers(users instance);
     partial void Inserttrainings(trainings instance);
     partial void Updatetrainings(trainings instance);
     partial void Deletetrainings(trainings instance);
@@ -94,6 +94,14 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
+		public System.Data.Linq.Table<users> users
+		{
+			get
+			{
+				return this.GetTable<users>();
+			}
+		}
+		
 		public System.Data.Linq.Table<currency> currency
 		{
 			get
@@ -134,19 +142,27 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		public System.Data.Linq.Table<users> users
-		{
-			get
-			{
-				return this.GetTable<users>();
-			}
-		}
-		
 		public System.Data.Linq.Table<trainings> trainings
 		{
 			get
 			{
 				return this.GetTable<trainings>();
+			}
+		}
+		
+		public System.Data.Linq.Table<view_participants_trainings> view_participants_trainings
+		{
+			get
+			{
+				return this.GetTable<view_participants_trainings>();
+			}
+		}
+		
+		public System.Data.Linq.Table<view_participants> view_participants
+		{
+			get
+			{
+				return this.GetTable<view_participants>();
 			}
 		}
 	}
@@ -334,6 +350,164 @@ namespace AplikacjaSzkoleniowa
 		{
 			this.SendPropertyChanging();
 			entity.countries = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
+	public partial class users : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _id_users;
+		
+		private string _login;
+		
+		private string _password;
+		
+		private System.Nullable<bool> _active;
+		
+		private System.Nullable<System.DateTime> _date_add;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_usersChanging(decimal value);
+    partial void Onid_usersChanged();
+    partial void OnloginChanging(string value);
+    partial void OnloginChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnactiveChanging(System.Nullable<bool> value);
+    partial void OnactiveChanged();
+    partial void Ondate_addChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_addChanged();
+    #endregion
+		
+		public users()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_users", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public decimal id_users
+		{
+			get
+			{
+				return this._id_users;
+			}
+			set
+			{
+				if ((this._id_users != value))
+				{
+					this.Onid_usersChanging(value);
+					this.SendPropertyChanging();
+					this._id_users = value;
+					this.SendPropertyChanged("id_users");
+					this.Onid_usersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login", DbType="VarChar(50)")]
+		public string login
+		{
+			get
+			{
+				return this._login;
+			}
+			set
+			{
+				if ((this._login != value))
+				{
+					this.OnloginChanging(value);
+					this.SendPropertyChanging();
+					this._login = value;
+					this.SendPropertyChanged("login");
+					this.OnloginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(250)")]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
+		public System.Nullable<bool> active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this.OnactiveChanging(value);
+					this.SendPropertyChanging();
+					this._active = value;
+					this.SendPropertyChanged("active");
+					this.OnactiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date_add
+		{
+			get
+			{
+				return this._date_add;
+			}
+			set
+			{
+				if ((this._date_add != value))
+				{
+					this.Ondate_addChanging(value);
+					this.SendPropertyChanging();
+					this._date_add = value;
+					this.SendPropertyChanged("date_add");
+					this.Ondate_addChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -601,8 +775,6 @@ namespace AplikacjaSzkoleniowa
 		
 		private System.Nullable<bool> _active;
 		
-		private EntitySet<participants> _participants;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -617,7 +789,6 @@ namespace AplikacjaSzkoleniowa
 		
 		public offers()
 		{
-			this._participants = new EntitySet<participants>(new Action<participants>(this.attach_participants), new Action<participants>(this.detach_participants));
 			OnCreated();
 		}
 		
@@ -681,19 +852,6 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="offers_participants", Storage="_participants", ThisKey="id_offers", OtherKey="id_offer")]
-		public EntitySet<participants> participants
-		{
-			get
-			{
-				return this._participants;
-			}
-			set
-			{
-				this._participants.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -712,18 +870,6 @@ namespace AplikacjaSzkoleniowa
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_participants(participants entity)
-		{
-			this.SendPropertyChanging();
-			entity.offers = this;
-		}
-		
-		private void detach_participants(participants entity)
-		{
-			this.SendPropertyChanging();
-			entity.offers = null;
 		}
 	}
 	
@@ -751,7 +897,7 @@ namespace AplikacjaSzkoleniowa
 		
 		private string _postal_code;
 		
-		private System.Nullable<decimal> _id_offer;
+		private System.Nullable<decimal> _id_offers;
 		
 		private System.Nullable<decimal> _id_education;
 		
@@ -760,8 +906,6 @@ namespace AplikacjaSzkoleniowa
 		private EntityRef<countries> _countries;
 		
 		private EntityRef<education> _education;
-		
-		private EntityRef<offers> _offers;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -785,8 +929,8 @@ namespace AplikacjaSzkoleniowa
     partial void OnstreetChanged();
     partial void Onpostal_codeChanging(string value);
     partial void Onpostal_codeChanged();
-    partial void Onid_offerChanging(System.Nullable<decimal> value);
-    partial void Onid_offerChanged();
+    partial void Onid_offersChanging(System.Nullable<decimal> value);
+    partial void Onid_offersChanged();
     partial void Onid_educationChanging(System.Nullable<decimal> value);
     partial void Onid_educationChanged();
     #endregion
@@ -796,7 +940,6 @@ namespace AplikacjaSzkoleniowa
 			this._participants_trainings = new EntitySet<participants_trainings>(new Action<participants_trainings>(this.attach_participants_trainings), new Action<participants_trainings>(this.detach_participants_trainings));
 			this._countries = default(EntityRef<countries>);
 			this._education = default(EntityRef<education>);
-			this._offers = default(EntityRef<offers>);
 			OnCreated();
 		}
 		
@@ -984,26 +1127,22 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_offer", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> id_offer
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_offers", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_offers
 		{
 			get
 			{
-				return this._id_offer;
+				return this._id_offers;
 			}
 			set
 			{
-				if ((this._id_offer != value))
+				if ((this._id_offers != value))
 				{
-					if (this._offers.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_offerChanging(value);
+					this.Onid_offersChanging(value);
 					this.SendPropertyChanging();
-					this._id_offer = value;
-					this.SendPropertyChanged("id_offer");
-					this.Onid_offerChanged();
+					this._id_offers = value;
+					this.SendPropertyChanged("id_offers");
+					this.Onid_offersChanged();
 				}
 			}
 		}
@@ -1109,40 +1248,6 @@ namespace AplikacjaSzkoleniowa
 						this._id_education = default(Nullable<decimal>);
 					}
 					this.SendPropertyChanged("education");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="offers_participants", Storage="_offers", ThisKey="id_offer", OtherKey="id_offers", IsForeignKey=true)]
-		public offers offers
-		{
-			get
-			{
-				return this._offers.Entity;
-			}
-			set
-			{
-				offers previousValue = this._offers.Entity;
-				if (((previousValue != value) 
-							|| (this._offers.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._offers.Entity = null;
-						previousValue.participants.Remove(this);
-					}
-					this._offers.Entity = value;
-					if ((value != null))
-					{
-						value.participants.Add(this);
-						this._id_offer = value.id_offers;
-					}
-					else
-					{
-						this._id_offer = default(Nullable<decimal>);
-					}
-					this.SendPropertyChanged("offers");
 				}
 			}
 		}
@@ -1372,164 +1477,6 @@ namespace AplikacjaSzkoleniowa
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.users")]
-	public partial class users : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private decimal _id_users;
-		
-		private string _login;
-		
-		private string _password;
-		
-		private System.Nullable<bool> _active;
-		
-		private System.Nullable<System.DateTime> _date_add;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_usersChanging(decimal value);
-    partial void Onid_usersChanged();
-    partial void OnloginChanging(string value);
-    partial void OnloginChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnactiveChanging(System.Nullable<bool> value);
-    partial void OnactiveChanged();
-    partial void Ondate_addChanging(System.Nullable<System.DateTime> value);
-    partial void Ondate_addChanged();
-    #endregion
-		
-		public users()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_users", AutoSync=AutoSync.OnInsert, DbType="Decimal(18,0) NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public decimal id_users
-		{
-			get
-			{
-				return this._id_users;
-			}
-			set
-			{
-				if ((this._id_users != value))
-				{
-					this.Onid_usersChanging(value);
-					this.SendPropertyChanging();
-					this._id_users = value;
-					this.SendPropertyChanged("id_users");
-					this.Onid_usersChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_login", DbType="VarChar(50)")]
-		public string login
-		{
-			get
-			{
-				return this._login;
-			}
-			set
-			{
-				if ((this._login != value))
-				{
-					this.OnloginChanging(value);
-					this.SendPropertyChanging();
-					this._login = value;
-					this.SendPropertyChanged("login");
-					this.OnloginChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(250)")]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
-		public System.Nullable<bool> active
-		{
-			get
-			{
-				return this._active;
-			}
-			set
-			{
-				if ((this._active != value))
-				{
-					this.OnactiveChanging(value);
-					this.SendPropertyChanging();
-					this._active = value;
-					this.SendPropertyChanged("active");
-					this.OnactiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime")]
-		public System.Nullable<System.DateTime> date_add
-		{
-			get
-			{
-				return this._date_add;
-			}
-			set
-			{
-				if ((this._date_add != value))
-				{
-					this.Ondate_addChanging(value);
-					this.SendPropertyChanging();
-					this._date_add = value;
-					this.SendPropertyChanged("date_add");
-					this.Ondate_addChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.trainings")]
 	public partial class trainings : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1544,21 +1491,21 @@ namespace AplikacjaSzkoleniowa
 		
 		private string _leader;
 		
-		private System.Nullable<System.DateTime> _start;
+		private System.DateTime _start;
 		
-		private System.Nullable<System.DateTime> _finish;
+		private System.DateTime _finish;
 		
-		private System.Nullable<decimal> _price;
+		private decimal _price;
 		
-		private System.Nullable<decimal> _id_currency;
+		private decimal _id_currency;
 		
 		private string _description;
 		
-		private System.Nullable<decimal> _slot;
+		private decimal _slot;
 		
-		private System.Nullable<bool> _active;
+		private bool _active;
 		
-		private System.Nullable<System.DateTime> _date_add;
+		private System.DateTime _date_add;
 		
 		private EntitySet<participants_trainings> _participants_trainings;
 		
@@ -1576,21 +1523,21 @@ namespace AplikacjaSzkoleniowa
     partial void OnbusinessChanged();
     partial void OnleaderChanging(string value);
     partial void OnleaderChanged();
-    partial void OnstartChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartChanging(System.DateTime value);
     partial void OnstartChanged();
-    partial void OnfinishChanging(System.Nullable<System.DateTime> value);
+    partial void OnfinishChanging(System.DateTime value);
     partial void OnfinishChanged();
-    partial void OnpriceChanging(System.Nullable<decimal> value);
+    partial void OnpriceChanging(decimal value);
     partial void OnpriceChanged();
-    partial void Onid_currencyChanging(System.Nullable<decimal> value);
+    partial void Onid_currencyChanging(decimal value);
     partial void Onid_currencyChanged();
     partial void OndescriptionChanging(string value);
     partial void OndescriptionChanged();
-    partial void OnslotChanging(System.Nullable<decimal> value);
+    partial void OnslotChanging(decimal value);
     partial void OnslotChanged();
-    partial void OnactiveChanging(System.Nullable<bool> value);
+    partial void OnactiveChanging(bool value);
     partial void OnactiveChanged();
-    partial void Ondate_addChanging(System.Nullable<System.DateTime> value);
+    partial void Ondate_addChanging(System.DateTime value);
     partial void Ondate_addChanged();
     #endregion
 		
@@ -1621,7 +1568,7 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -1641,7 +1588,7 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business", DbType="VarChar(255)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
 		public string business
 		{
 			get
@@ -1681,8 +1628,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start", DbType="DateTime")]
-		public System.Nullable<System.DateTime> start
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start", DbType="DateTime NOT NULL")]
+		public System.DateTime start
 		{
 			get
 			{
@@ -1701,8 +1648,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finish", DbType="DateTime")]
-		public System.Nullable<System.DateTime> finish
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finish", DbType="DateTime NOT NULL")]
+		public System.DateTime finish
 		{
 			get
 			{
@@ -1721,8 +1668,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Money")]
-		public System.Nullable<decimal> price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Money NOT NULL")]
+		public decimal price
 		{
 			get
 			{
@@ -1741,8 +1688,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_currency", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> id_currency
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_currency", DbType="Decimal(18,0) NOT NULL")]
+		public decimal id_currency
 		{
 			get
 			{
@@ -1785,8 +1732,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0)")]
-		public System.Nullable<decimal> slot
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0) NOT NULL")]
+		public decimal slot
 		{
 			get
 			{
@@ -1805,8 +1752,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit")]
-		public System.Nullable<bool> active
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit NOT NULL")]
+		public bool active
 		{
 			get
 			{
@@ -1825,8 +1772,8 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime")]
-		public System.Nullable<System.DateTime> date_add
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date_add", DbType="DateTime NOT NULL")]
+		public System.DateTime date_add
 		{
 			get
 			{
@@ -1885,7 +1832,7 @@ namespace AplikacjaSzkoleniowa
 					}
 					else
 					{
-						this._id_currency = default(Nullable<decimal>);
+						this._id_currency = default(decimal);
 					}
 					this.SendPropertyChanged("currency");
 				}
@@ -1922,6 +1869,240 @@ namespace AplikacjaSzkoleniowa
 		{
 			this.SendPropertyChanging();
 			entity.trainings = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants_trainings")]
+	public partial class view_participants_trainings
+	{
+		
+		private string _name_training;
+		
+		private System.Nullable<int> _count_save;
+		
+		private System.Nullable<decimal> _count_free;
+		
+		private decimal _slot;
+		
+		public view_participants_trainings()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name_training", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string name_training
+		{
+			get
+			{
+				return this._name_training;
+			}
+			set
+			{
+				if ((this._name_training != value))
+				{
+					this._name_training = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_save", DbType="Int")]
+		public System.Nullable<int> count_save
+		{
+			get
+			{
+				return this._count_save;
+			}
+			set
+			{
+				if ((this._count_save != value))
+				{
+					this._count_save = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_free", DbType="Decimal(11,0)")]
+		public System.Nullable<decimal> count_free
+		{
+			get
+			{
+				return this._count_free;
+			}
+			set
+			{
+				if ((this._count_free != value))
+				{
+					this._count_free = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0) NOT NULL")]
+		public decimal slot
+		{
+			get
+			{
+				return this._slot;
+			}
+			set
+			{
+				if ((this._slot != value))
+				{
+					this._slot = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants")]
+	public partial class view_participants
+	{
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private string _email;
+		
+		private string _phone;
+		
+		private string _code;
+		
+		private string _city;
+		
+		private string _street;
+		
+		private string _postal_code;
+		
+		public view_participants()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="VarChar(50)")]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(150)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10)")]
+		public string phone
+		{
+			get
+			{
+				return this._phone;
+			}
+			set
+			{
+				if ((this._phone != value))
+				{
+					this._phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string code
+		{
+			get
+			{
+				return this._code;
+			}
+			set
+			{
+				if ((this._code != value))
+				{
+					this._code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(20)")]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_street", DbType="VarChar(20)")]
+		public string street
+		{
+			get
+			{
+				return this._street;
+			}
+			set
+			{
+				if ((this._street != value))
+				{
+					this._street = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(5)")]
+		public string postal_code
+		{
+			get
+			{
+				return this._postal_code;
+			}
+			set
+			{
+				if ((this._postal_code != value))
+				{
+					this._postal_code = value;
+				}
+			}
 		}
 	}
 }

@@ -15,8 +15,10 @@ namespace AplikacjaSzkoleniowa
     public partial class Form_participant : Form
     {
         DataClasses1DataContext db;
-        public Form_participant()
+        String temp;
+        public Form_participant(string login)
         {
+            temp = login;
             InitializeComponent();
         }
 
@@ -42,7 +44,8 @@ namespace AplikacjaSzkoleniowa
 
 
             }
-
+            label14.Text = "Logged in as: " + this.temp;
+            label12.Text = "Online";
         }
 
 
@@ -79,26 +82,24 @@ namespace AplikacjaSzkoleniowa
                         p.street = textBox6.Text;
                         p.postal_code = textBox7.Text;
                         p.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
-                        p.id_offer = Int32.Parse((comboBox3.SelectedValue.ToString()));
-                        MessageBox.Show("Dodano do bazy" + textBox1.Text);
+                        p.id_offers = Int32.Parse((comboBox3.SelectedValue.ToString()));
+                        
                         db.participants.InsertOnSubmit(p);
                         db.SubmitChanges();
 
-
                         var last_participants_id = db.participants.ToArray().LastOrDefault().id_participants;
-
 
                         participants_trainings pt = new participants_trainings();
                         pt.id_participants = Int32.Parse((last_participants_id.ToString()));
                         pt.id_trainings = Int32.Parse((comboBox4.SelectedValue.ToString()));
                         db.participants_trainings.InsertOnSubmit(pt);
                         db.SubmitChanges();
-                        MessageBox.Show("udalo sie");
+                        MessageBox.Show("New training added!");
                     }  
                 }
                 else
                 {
-                    MessageBox.Show("Blednie wypelniony formularz!");
+                    MessageBox.Show("Wrongly completed form. Please correct errors!");
                 }
                     
             }
@@ -106,16 +107,6 @@ namespace AplikacjaSzkoleniowa
             {
                 MessageBox.Show(ex.ToString());
             }
-
-
-          
-                    
-             
-            
-
-            
-               
-
 
         }
 
@@ -128,6 +119,13 @@ namespace AplikacjaSzkoleniowa
         private void plikToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form_main form_main = new Form_main(this.temp);
+            form_main.Show();
+            this.Hide();
         }
     }
 }

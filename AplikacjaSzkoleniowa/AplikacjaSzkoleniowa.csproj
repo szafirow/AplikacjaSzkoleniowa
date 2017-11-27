@@ -67,6 +67,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Form_participant_base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_participant_base.Designer.cs">
+      <DependentUpon>Form_participant_base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_training_stat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_training_stat.Designer.cs">
+      <DependentUpon>Form_training_stat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_list_all.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_list_all.Designer.cs">
+      <DependentUpon>Form_list_all.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +111,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_participant_base.resx">
+      <DependentUpon>Form_participant_base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_training_stat.resx">
+      <DependentUpon>Form_training_stat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_list_all.resx">
+      <DependentUpon>Form_list_all.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_main.resx">
       <DependentUpon>Form_main.cs</DependentUpon>
     </EmbeddedResource>

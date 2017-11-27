@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ustawieniaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,36 +53,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.plikToolStripMenuItem,
-            this.ustawieniaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(957, 33);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // plikToolStripMenuItem
-            // 
-            this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(124, 29);
-            this.plikToolStripMenuItem.Text = "New training";
-            this.plikToolStripMenuItem.Click += new System.EventHandler(this.plikToolStripMenuItem_Click);
-            // 
-            // ustawieniaToolStripMenuItem
-            // 
-            this.ustawieniaToolStripMenuItem.Name = "ustawieniaToolStripMenuItem";
-            this.ustawieniaToolStripMenuItem.Size = new System.Drawing.Size(156, 29);
-            this.ustawieniaToolStripMenuItem.Text = "New participants";
-            this.ustawieniaToolStripMenuItem.Click += new System.EventHandler(this.ustawieniaToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -101,7 +75,7 @@
             this.textBox1.Location = new System.Drawing.Point(10, 45);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(164, 26);
-            this.textBox1.TabIndex = 2;
+            this.textBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -117,7 +91,7 @@
             this.textBox2.Location = new System.Drawing.Point(10, 97);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(164, 26);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 2;
             // 
             // label3
             // 
@@ -149,10 +123,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 20;
             this.comboBox1.Location = new System.Drawing.Point(228, 94);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(164, 28);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox1.TabIndex = 5;
             // 
             // label6
             // 
@@ -168,7 +143,7 @@
             this.textBox5.Location = new System.Drawing.Point(228, 149);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(164, 26);
-            this.textBox5.TabIndex = 12;
+            this.textBox5.TabIndex = 6;
             // 
             // label7
             // 
@@ -184,7 +159,7 @@
             this.textBox6.Location = new System.Drawing.Point(462, 45);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(164, 26);
-            this.textBox6.TabIndex = 14;
+            this.textBox6.TabIndex = 7;
             // 
             // label8
             // 
@@ -201,12 +176,12 @@
             this.comboBox2.Location = new System.Drawing.Point(462, 149);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(164, 28);
-            this.comboBox2.TabIndex = 20;
+            this.comboBox2.TabIndex = 9;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(458, 126);
+            this.label9.Location = new System.Drawing.Point(462, 126);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 20);
             this.label9.TabIndex = 19;
@@ -218,7 +193,7 @@
             this.comboBox3.Location = new System.Drawing.Point(671, 45);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(223, 28);
-            this.comboBox3.TabIndex = 22;
+            this.comboBox3.TabIndex = 10;
             // 
             // label10
             // 
@@ -245,21 +220,21 @@
             this.textBox3.Location = new System.Drawing.Point(10, 150);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(164, 26);
-            this.textBox3.TabIndex = 25;
+            this.textBox3.TabIndex = 3;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(228, 45);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(164, 26);
-            this.textBox4.TabIndex = 26;
+            this.textBox4.TabIndex = 4;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(462, 97);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(164, 26);
-            this.textBox7.TabIndex = 27;
+            this.textBox7.TabIndex = 8;
             // 
             // groupBox1
             // 
@@ -307,7 +282,7 @@
             this.comboBox4.Location = new System.Drawing.Point(14, 68);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(612, 28);
-            this.comboBox4.TabIndex = 2;
+            this.comboBox4.TabIndex = 11;
             // 
             // label11
             // 
@@ -318,21 +293,61 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Trainings";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(30, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 29);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "←";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label12.Location = new System.Drawing.Point(880, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 20);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Online";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(810, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 20);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Status:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(492, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(167, 20);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "Zalogowany jako: XYZ";
+            // 
+            // Form_participant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 510);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_insertPartcipants);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.MaximumSize = new System.Drawing.Size(979, 565);
+            this.MinimumSize = new System.Drawing.Size(979, 565);
+            this.Name = "Form_participant";
             this.Text = "AplikacjaSzkoleniowa";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -343,10 +358,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
@@ -372,6 +383,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }
 

@@ -15,11 +15,12 @@ namespace AplikacjaSzkoleniowa
     {
         DataClasses1DataContext db;
         String temp;
-        public Form_main(string t)
+        public Form_main(string login)
         {
-            temp = t;
+            temp = login;
             InitializeComponent();
         }
+        
 
         private void Form_main_Load(object sender, EventArgs e)
         {
@@ -36,10 +37,10 @@ namespace AplikacjaSzkoleniowa
 
             }
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
-            Form_training form_training = new Form_training();
+            Form_training form_training = new Form_training(this.temp);
             form_training.Show();
             this.Hide();
         }
@@ -47,8 +48,9 @@ namespace AplikacjaSzkoleniowa
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form_participant form_participant = new Form_participant();
+            Form_participant form_participant = new Form_participant(this.temp);
             form_participant.Show();
+            this.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -63,6 +65,14 @@ namespace AplikacjaSzkoleniowa
             form_login.Show();
         }
 
- 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            /* Form_list form_list = new Form_list(this.temp);
+             form_list.Show();
+             this.Hide();*/
+            Form_list_all form_list_all = new Form_list_all(this.temp);
+            form_list_all.Show();
+            this.Hide();
+        }
     }
 }
