@@ -29,6 +29,7 @@ namespace AplikacjaSzkoleniowa
             {
                 dataGridView1.ReadOnly = true;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.DataSource = db.view_participants_trainings;
             }
         }

@@ -32,6 +32,7 @@ namespace AplikacjaSzkoleniowa
             {
                 dataGridView1.ReadOnly = true;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView1.AllowUserToAddRows = false;
                 dataGridView1.DataSource =db.view_participants;
             }
         }
@@ -48,36 +49,40 @@ namespace AplikacjaSzkoleniowa
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            groupBox1.Enabled = true;
-            button2.Enabled = true;
-            button3.Enabled = true;
-
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-
-            using (db = new DataClasses1DataContext())
+            try
             {
-                comboBox1.DisplayMember = "code";
-                comboBox1.ValueMember = "id_countries";
-                comboBox1.DataSource = db.countries.ToList<countries>();
+                groupBox1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+
+                textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+
+                using (db = new DataClasses1DataContext())
+                {
+                    comboBox1.DisplayMember = "code";
+                    comboBox1.ValueMember = "id_countries";
+                    comboBox1.DataSource = db.countries.ToList<countries>();
+                }
+
+                textBox5.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                textBox6.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+
+                using (db = new DataClasses1DataContext())
+                {
+                    comboBox2.DisplayMember = "name";
+                    comboBox2.ValueMember = "id_education";
+                    comboBox2.DataSource = db.education.ToList<education>();
+                }
+
+                textBox7.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
             }
-
-            textBox5.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-            textBox6.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-
-            using (db = new DataClasses1DataContext())
+            catch (Exception ex)
             {
-                comboBox2.DisplayMember = "name";
-                comboBox2.ValueMember = "id_education";
-                comboBox2.DataSource = db.education.ToList<education>();
+                MessageBox.Show("Error" + ex);
             }
-
-            textBox7.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-
-
-
         }
 
         private void button3_Click(object sender, EventArgs e)

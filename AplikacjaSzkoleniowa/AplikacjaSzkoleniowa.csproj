@@ -79,6 +79,12 @@
     <Compile Include="Form_training_base.Designer.cs">
       <DependentUpon>Form_training_base.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_training_data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_training_data.Designer.cs">
+      <DependentUpon>Form_training_data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_training_stat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_training_base.resx">
       <DependentUpon>Form_training_base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_training_data.resx">
+      <DependentUpon>Form_training_data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_training_stat.resx">
       <DependentUpon>Form_training_stat.cs</DependentUpon>

@@ -165,6 +165,14 @@ namespace AplikacjaSzkoleniowa
 				return this.GetTable<view_participants>();
 			}
 		}
+		
+		public System.Data.Linq.Table<view_trainings> view_trainings
+		{
+			get
+			{
+				return this.GetTable<view_trainings>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.countries")]
@@ -2137,6 +2145,213 @@ namespace AplikacjaSzkoleniowa
 				if ((this._education != value))
 				{
 					this._education = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_trainings")]
+	public partial class view_trainings
+	{
+		
+		private decimal _id_trainings;
+		
+		private string _name;
+		
+		private string _business;
+		
+		private string _leader;
+		
+		private System.DateTime _start;
+		
+		private System.DateTime _finish;
+		
+		private decimal _price;
+		
+		private string _code;
+		
+		private string _description;
+		
+		private decimal _slot;
+		
+		private bool _active;
+		
+		public view_trainings()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trainings", DbType="Decimal(18,0) NOT NULL")]
+		public decimal id_trainings
+		{
+			get
+			{
+				return this._id_trainings;
+			}
+			set
+			{
+				if ((this._id_trainings != value))
+				{
+					this._id_trainings = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_business", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string business
+		{
+			get
+			{
+				return this._business;
+			}
+			set
+			{
+				if ((this._business != value))
+				{
+					this._business = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_leader", DbType="VarChar(255)")]
+		public string leader
+		{
+			get
+			{
+				return this._leader;
+			}
+			set
+			{
+				if ((this._leader != value))
+				{
+					this._leader = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start", DbType="DateTime NOT NULL")]
+		public System.DateTime start
+		{
+			get
+			{
+				return this._start;
+			}
+			set
+			{
+				if ((this._start != value))
+				{
+					this._start = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_finish", DbType="DateTime NOT NULL")]
+		public System.DateTime finish
+		{
+			get
+			{
+				return this._finish;
+			}
+			set
+			{
+				if ((this._finish != value))
+				{
+					this._finish = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Money NOT NULL")]
+		public decimal price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this._price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="VarChar(3)")]
+		public string code
+		{
+			get
+			{
+				return this._code;
+			}
+			set
+			{
+				if ((this._code != value))
+				{
+					this._code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this._description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0) NOT NULL")]
+		public decimal slot
+		{
+			get
+			{
+				return this._slot;
+			}
+			set
+			{
+				if ((this._slot != value))
+				{
+					this._slot = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_active", DbType="Bit NOT NULL")]
+		public bool active
+		{
+			get
+			{
+				return this._active;
+			}
+			set
+			{
+				if ((this._active != value))
+				{
+					this._active = value;
 				}
 			}
 		}

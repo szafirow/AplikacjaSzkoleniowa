@@ -14,6 +14,7 @@ namespace AplikacjaSzkoleniowa
     {
         DataClasses1DataContext db;
         String temp;
+        int train;
         public Form_list_all(string login)
         {
             temp = login;
@@ -58,6 +59,14 @@ namespace AplikacjaSzkoleniowa
         {
             Form_training_base form_training_base = new Form_training_base(this.temp);
             form_training_base.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            train = Int32.Parse((comboBox1.SelectedValue.ToString()));
+            Form_training_data form_training_data = new Form_training_data(this.temp,this.train);
+            form_training_data.Show();
             this.Hide();
         }
     }
