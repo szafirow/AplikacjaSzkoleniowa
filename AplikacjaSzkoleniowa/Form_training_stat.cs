@@ -28,6 +28,7 @@ namespace AplikacjaSzkoleniowa
             using (db = new DataClasses1DataContext())
             {
                 dataGridView1.ReadOnly = true;
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.DataSource = db.view_participants_trainings;
             }
         }

@@ -1957,6 +1957,8 @@ namespace AplikacjaSzkoleniowa
 	public partial class view_participants
 	{
 		
+		private decimal _id_participants;
+		
 		private string _name;
 		
 		private string _surname;
@@ -1973,8 +1975,26 @@ namespace AplikacjaSzkoleniowa
 		
 		private string _postal_code;
 		
+		private string _education;
+		
 		public view_participants()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_participants", DbType="Decimal(18,0) NOT NULL")]
+		public decimal id_participants
+		{
+			get
+			{
+				return this._id_participants;
+			}
+			set
+			{
+				if ((this._id_participants != value))
+				{
+					this._id_participants = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
@@ -2101,6 +2121,22 @@ namespace AplikacjaSzkoleniowa
 				if ((this._postal_code != value))
 				{
 					this._postal_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="VarChar(100)")]
+		public string education
+		{
+			get
+			{
+				return this._education;
+			}
+			set
+			{
+				if ((this._education != value))
+				{
+					this._education = value;
 				}
 			}
 		}

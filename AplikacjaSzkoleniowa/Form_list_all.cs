@@ -53,5 +53,12 @@ namespace AplikacjaSzkoleniowa
             form_participant_base.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form_training_base form_training_base = new Form_training_base(this.temp);
+            form_training_base.Show();
+            this.Hide();
+        }
     }
 }

@@ -96,6 +96,7 @@
   </Table>
   <Table Name="dbo.view_participants" Member="view_participants">
     <Type Name="view_participants">
+      <Column Name="id_participants" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="email" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
@@ -104,6 +105,7 @@
       <Column Name="city" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="street" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="postal_code" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="education" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

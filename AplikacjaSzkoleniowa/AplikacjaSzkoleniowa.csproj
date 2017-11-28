@@ -73,6 +73,12 @@
     <Compile Include="Form_participant_base.Designer.cs">
       <DependentUpon>Form_participant_base.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_training_base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_training_base.Designer.cs">
+      <DependentUpon>Form_training_base.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_training_stat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_participant_base.resx">
       <DependentUpon>Form_participant_base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_training_base.resx">
+      <DependentUpon>Form_training_base.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_training_stat.resx">
       <DependentUpon>Form_training_stat.cs</DependentUpon>
