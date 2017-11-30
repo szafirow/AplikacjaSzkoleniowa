@@ -69,31 +69,34 @@ namespace AplikacjaSzkoleniowa
                      && textBox5.Text.Length != 0
                      && textBox6.Text.Length != 0)
                 {
-
-                    using (db = new DataClasses1DataContext())
+                    if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        participants p = new participants();
-                        p.name = textBox1.Text;
-                        p.surname = textBox2.Text;
-                        p.email = textBox3.Text;
-                        p.phone = textBox4.Text;
-                        p.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
-                        p.city = textBox5.Text;
-                        p.street = textBox6.Text;
-                        p.postal_code = textBox7.Text;
-                        p.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
-                        p.id_offers = Int32.Parse((comboBox3.SelectedValue.ToString()));
-                        
-                        db.participants.InsertOnSubmit(p);
-                        db.SubmitChanges();
+                        using (db = new DataClasses1DataContext())
+                        {
+                            participants p = new participants();
+                            p.name = textBox1.Text;
+                            p.surname = textBox2.Text;
+                            p.email = textBox3.Text;
+                            p.phone = textBox4.Text;
+                            p.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
+                            p.city = textBox5.Text;
+                            p.street = textBox6.Text;
+                            p.postal_code = textBox7.Text;
+                            p.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
+                            p.id_offers = Int32.Parse((comboBox3.SelectedValue.ToString()));
 
-                        var last_participants_id = db.participants.ToArray().LastOrDefault().id_participants;
+                            db.participants.InsertOnSubmit(p);
+                            db.SubmitChanges();
 
-                        participants_trainings pt = new participants_trainings();
-                        pt.id_participants = Int32.Parse((last_participants_id.ToString()));
-                        pt.id_trainings = Int32.Parse((comboBox4.SelectedValue.ToString()));
-                        db.participants_trainings.InsertOnSubmit(pt);
-                        db.SubmitChanges();
+                            var last_participants_id = db.participants.ToArray().LastOrDefault().id_participants;
+
+                            participants_trainings pt = new participants_trainings();
+                            pt.id_participants = Int32.Parse((last_participants_id.ToString()));
+                            pt.id_trainings = Int32.Parse((comboBox4.SelectedValue.ToString()));
+                            db.participants_trainings.InsertOnSubmit(pt);
+                            db.SubmitChanges();
+
+                        }
                         MessageBox.Show("New training added!");
                     }  
                 }

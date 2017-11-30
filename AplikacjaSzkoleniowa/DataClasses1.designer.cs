@@ -150,11 +150,11 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		public System.Data.Linq.Table<view_participants_trainings> view_participants_trainings
+		public System.Data.Linq.Table<view_trainings> view_trainings
 		{
 			get
 			{
-				return this.GetTable<view_participants_trainings>();
+				return this.GetTable<view_trainings>();
 			}
 		}
 		
@@ -166,11 +166,11 @@ namespace AplikacjaSzkoleniowa
 			}
 		}
 		
-		public System.Data.Linq.Table<view_trainings> view_trainings
+		public System.Data.Linq.Table<view_participants_trainings> view_participants_trainings
 		{
 			get
 			{
-				return this.GetTable<view_trainings>();
+				return this.GetTable<view_participants_trainings>();
 			}
 		}
 	}
@@ -1880,276 +1880,6 @@ namespace AplikacjaSzkoleniowa
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants_trainings")]
-	public partial class view_participants_trainings
-	{
-		
-		private string _name_training;
-		
-		private System.Nullable<int> _count_save;
-		
-		private System.Nullable<decimal> _count_free;
-		
-		private decimal _slot;
-		
-		public view_participants_trainings()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name_training", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string name_training
-		{
-			get
-			{
-				return this._name_training;
-			}
-			set
-			{
-				if ((this._name_training != value))
-				{
-					this._name_training = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_save", DbType="Int")]
-		public System.Nullable<int> count_save
-		{
-			get
-			{
-				return this._count_save;
-			}
-			set
-			{
-				if ((this._count_save != value))
-				{
-					this._count_save = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_free", DbType="Decimal(11,0)")]
-		public System.Nullable<decimal> count_free
-		{
-			get
-			{
-				return this._count_free;
-			}
-			set
-			{
-				if ((this._count_free != value))
-				{
-					this._count_free = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0) NOT NULL")]
-		public decimal slot
-		{
-			get
-			{
-				return this._slot;
-			}
-			set
-			{
-				if ((this._slot != value))
-				{
-					this._slot = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants")]
-	public partial class view_participants
-	{
-		
-		private decimal _id_participants;
-		
-		private string _name;
-		
-		private string _surname;
-		
-		private string _email;
-		
-		private string _phone;
-		
-		private string _code;
-		
-		private string _city;
-		
-		private string _street;
-		
-		private string _postal_code;
-		
-		private string _education;
-		
-		public view_participants()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_participants", DbType="Decimal(18,0) NOT NULL")]
-		public decimal id_participants
-		{
-			get
-			{
-				return this._id_participants;
-			}
-			set
-			{
-				if ((this._id_participants != value))
-				{
-					this._id_participants = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="VarChar(50)")]
-		public string surname
-		{
-			get
-			{
-				return this._surname;
-			}
-			set
-			{
-				if ((this._surname != value))
-				{
-					this._surname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(150)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this._email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10)")]
-		public string phone
-		{
-			get
-			{
-				return this._phone;
-			}
-			set
-			{
-				if ((this._phone != value))
-				{
-					this._phone = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string code
-		{
-			get
-			{
-				return this._code;
-			}
-			set
-			{
-				if ((this._code != value))
-				{
-					this._code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(20)")]
-		public string city
-		{
-			get
-			{
-				return this._city;
-			}
-			set
-			{
-				if ((this._city != value))
-				{
-					this._city = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_street", DbType="VarChar(20)")]
-		public string street
-		{
-			get
-			{
-				return this._street;
-			}
-			set
-			{
-				if ((this._street != value))
-				{
-					this._street = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(5)")]
-		public string postal_code
-		{
-			get
-			{
-				return this._postal_code;
-			}
-			set
-			{
-				if ((this._postal_code != value))
-				{
-					this._postal_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="VarChar(100)")]
-		public string education
-		{
-			get
-			{
-				return this._education;
-			}
-			set
-			{
-				if ((this._education != value))
-				{
-					this._education = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_trainings")]
 	public partial class view_trainings
 	{
@@ -2352,6 +2082,276 @@ namespace AplikacjaSzkoleniowa
 				if ((this._active != value))
 				{
 					this._active = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants")]
+	public partial class view_participants
+	{
+		
+		private decimal _id_participants;
+		
+		private string _name;
+		
+		private string _surname;
+		
+		private string _email;
+		
+		private string _phone;
+		
+		private string _code;
+		
+		private string _city;
+		
+		private string _street;
+		
+		private string _postal_code;
+		
+		private string _education;
+		
+		public view_participants()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_participants", DbType="Decimal(18,0) NOT NULL")]
+		public decimal id_participants
+		{
+			get
+			{
+				return this._id_participants;
+			}
+			set
+			{
+				if ((this._id_participants != value))
+				{
+					this._id_participants = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_surname", DbType="VarChar(50)")]
+		public string surname
+		{
+			get
+			{
+				return this._surname;
+			}
+			set
+			{
+				if ((this._surname != value))
+				{
+					this._surname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(150)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10)")]
+		public string phone
+		{
+			get
+			{
+				return this._phone;
+			}
+			set
+			{
+				if ((this._phone != value))
+				{
+					this._phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_code", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string code
+		{
+			get
+			{
+				return this._code;
+			}
+			set
+			{
+				if ((this._code != value))
+				{
+					this._code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_city", DbType="VarChar(20)")]
+		public string city
+		{
+			get
+			{
+				return this._city;
+			}
+			set
+			{
+				if ((this._city != value))
+				{
+					this._city = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_street", DbType="VarChar(20)")]
+		public string street
+		{
+			get
+			{
+				return this._street;
+			}
+			set
+			{
+				if ((this._street != value))
+				{
+					this._street = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_postal_code", DbType="VarChar(5)")]
+		public string postal_code
+		{
+			get
+			{
+				return this._postal_code;
+			}
+			set
+			{
+				if ((this._postal_code != value))
+				{
+					this._postal_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="VarChar(100)")]
+		public string education
+		{
+			get
+			{
+				return this._education;
+			}
+			set
+			{
+				if ((this._education != value))
+				{
+					this._education = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.view_participants_trainings")]
+	public partial class view_participants_trainings
+	{
+		
+		private string _name;
+		
+		private System.Nullable<int> _count_save;
+		
+		private System.Nullable<decimal> _count_free;
+		
+		private System.Nullable<decimal> _slot;
+		
+		public view_participants_trainings()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_save", DbType="Int")]
+		public System.Nullable<int> count_save
+		{
+			get
+			{
+				return this._count_save;
+			}
+			set
+			{
+				if ((this._count_save != value))
+				{
+					this._count_save = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_free", DbType="Decimal(11,0)")]
+		public System.Nullable<decimal> count_free
+		{
+			get
+			{
+				return this._count_free;
+			}
+			set
+			{
+				if ((this._count_free != value))
+				{
+					this._count_free = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_slot", DbType="Decimal(3,0)")]
+		public System.Nullable<decimal> slot
+		{
+			get
+			{
+				return this._slot;
+			}
+			set
+			{
+				if ((this._slot != value))
+				{
+					this._slot = value;
 				}
 			}
 		}

@@ -91,36 +91,39 @@ namespace AplikacjaSzkoleniowa
             //UPDATE PARTICIPANT
             try
             {
-                using (db = new DataClasses1DataContext())
+                if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    var result = (from p in db.participants
-                                   where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
-                    select p).Take(1);
-
-                    foreach (var p in result)
+                    using (db = new DataClasses1DataContext())
                     {
-                        participants participants = db.participants.Single(cp => cp.id_participants == p.id_participants);
-                        participants.name = textBox1.Text;
-                        participants.surname = textBox2.Text;
-                        participants.email = textBox3.Text;
-                        participants.phone = textBox4.Text;
+                        var result = (from p in db.participants
+                                      where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
+                                      select p).Take(1);
 
-                        participants.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
-                        participants.city = textBox5.Text;
-                        participants.street = textBox6.Text;
-                        participants.postal_code = textBox7.Text;
-                        participants.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
-                       
+                        foreach (var p in result)
+                        {
+                            participants participants = db.participants.Single(cp => cp.id_participants == p.id_participants);
+                            participants.name = textBox1.Text;
+                            participants.surname = textBox2.Text;
+                            participants.email = textBox3.Text;
+                            participants.phone = textBox4.Text;
 
-                        db.SubmitChanges();
+                            participants.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
+                            participants.city = textBox5.Text;
+                            participants.street = textBox6.Text;
+                            participants.postal_code = textBox7.Text;
+                            participants.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
+
+
+                            db.SubmitChanges();
+                        }
+                        //AKTUALIZACJA DATAGRID LIVE
+                        dataGridView1.DataSource = null;
+                        dataGridView1.Update();
+                        dataGridView1.Refresh();
+                        dataGridView1.DataSource = db.view_participants;
                     }
-                    //AKTUALIZACJA DATAGRID LIVE
-                    dataGridView1.DataSource = null;
-                    dataGridView1.Update();
-                    dataGridView1.Refresh();
-                    dataGridView1.DataSource = db.view_participants;
+                    MessageBox.Show("The data has been modified!");
                 }
-                MessageBox.Show("The data has been modified!");
 
             }
             catch (Exception ex)
@@ -137,42 +140,45 @@ namespace AplikacjaSzkoleniowa
 
             try
             {
-                using (db = new DataClasses1DataContext())
+                if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-
-                    //DEL PARTICIPANT_TRAININGS
-                    var result1 = (
-                                from p in db.participants
-                                join pt in db.participants_trainings
-                                    on p.id_participants equals pt.id_participants_trainings
-                                where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
-                                select pt).Take(1);
-
-                    foreach (var pt in result1)
+                    using (db = new DataClasses1DataContext())
                     {
-                      
-                        db.participants_trainings.DeleteOnSubmit(pt);
-                        db.SubmitChanges();
-                    }
 
-                    //DEL PARTICIPANT
-                    var result2 = (
-                                 from p in db.participants
-                                 where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
-                                 select p).Take(1);
+                        //DEL PARTICIPANT_TRAININGS
+                        var result1 = (
+                                    from p in db.participants
+                                    join pt in db.participants_trainings
+                                        on p.id_participants equals pt.id_participants_trainings
+                                    where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
+                                    select pt).Take(1);
 
-                    foreach (var p in result2)
-                    {
-                        db.participants.DeleteOnSubmit(p);
-                        db.SubmitChanges();
+                        foreach (var pt in result1)
+                        {
+                            db.participants_trainings.DeleteOnSubmit(pt);
+                            db.SubmitChanges();
+                        }
+
+                        //DEL PARTICIPANT
+                        var result2 = (
+                                     from p in db.participants
+                                     where p.id_participants == Decimal.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString())
+                                     select p).Take(1);
+
+                        foreach (var p in result2)
+                        {
+                            db.participants.DeleteOnSubmit(p);
+                            db.SubmitChanges();
+                        }
+                        //AKTUALIZACJA DATAGRID LIVE
+                        dataGridView1.DataSource = null;
+                        dataGridView1.Update();
+                        dataGridView1.Refresh();
+                        dataGridView1.DataSource = db.view_participants;
                     }
-                    //AKTUALIZACJA DATAGRID LIVE
-                    dataGridView1.DataSource = null;
-                    dataGridView1.Update();
-                    dataGridView1.Refresh();
-                    dataGridView1.DataSource = db.view_participants;
+                    MessageBox.Show("Deleted record!");
                 }
-                MessageBox.Show("Deleted record!");
+                  
             }
             catch (Exception ex)
             {

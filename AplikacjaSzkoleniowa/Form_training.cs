@@ -50,25 +50,29 @@ namespace AplikacjaSzkoleniowa
                     && (textBox5.Text.All(c => Char.IsNumber(c)))
                     )
                 {
-                    using (db = new DataClasses1DataContext())
+                    if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        trainings t = new trainings();
-                        t.name = textBox1.Text;
-                        t.business = textBox2.Text;
-                        t.leader = textBox3.Text;
-                        t.price = Decimal.Parse(textBox4.Text);
-                        t.slot = Int32.Parse(textBox5.Text);
-                        t.description = textBox6.Text;
-                        t.start = Convert.ToDateTime(dateTimePicker1.Text);
-                        t.finish = Convert.ToDateTime(dateTimePicker2.Text);
-                        t.id_currency = Int32.Parse((comboBox1.SelectedValue.ToString()));
-                        t.active = true;
-                        t.date_add = date + time;
-                        db.trainings.InsertOnSubmit(t);
-                        db.SubmitChanges();
-                        MessageBox.Show("New training added!");
+                        using (db = new DataClasses1DataContext())
+                        {
+                            trainings t = new trainings();
+                            t.name = textBox1.Text;
+                            t.business = textBox2.Text;
+                            t.leader = textBox3.Text;
+                            t.price = Decimal.Parse(textBox4.Text);
+                            t.slot = Int32.Parse(textBox5.Text);
+                            t.description = textBox6.Text;
+                            t.start = Convert.ToDateTime(dateTimePicker1.Text);
+                            t.finish = Convert.ToDateTime(dateTimePicker2.Text);
+                            t.id_currency = Int32.Parse((comboBox1.SelectedValue.ToString()));
+                            t.active = true;
+                            t.date_add = date + time;
+                            db.trainings.InsertOnSubmit(t);
+                            db.SubmitChanges();
+                            MessageBox.Show("New training added!");
 
+                        }
                     }
+                        
                 }
                 else
                 {

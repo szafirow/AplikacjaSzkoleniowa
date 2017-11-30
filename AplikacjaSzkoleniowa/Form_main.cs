@@ -55,24 +55,28 @@ namespace AplikacjaSzkoleniowa
 
         private void button3_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(1);
+            if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                System.Environment.Exit(1);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Hide();
-            Form_login form_login = new Form_login();
-            form_login.Show();
+            if (MessageBox.Show("Are you sure you want to perform this operation?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Hide();
+                Form_login form_login = new Form_login();
+                form_login.Show();
+            }
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            /* Form_list form_list = new Form_list(this.temp);
-             form_list.Show();
-             this.Hide();*/
-            Form_list_all form_list_all = new Form_list_all(this.temp);
-            form_list_all.Show();
-            this.Hide();
+                Form_list_all form_list_all = new Form_list_all(this.temp);
+                form_list_all.Show();
+                this.Hide();
         }
     }
 }
