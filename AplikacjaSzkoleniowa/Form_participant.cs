@@ -42,7 +42,6 @@ namespace AplikacjaSzkoleniowa
                 comboBox4.ValueMember = "id_trainings";
                 comboBox4.DataSource = db.trainings.ToList<trainings>().Where(t => t.active == true).ToList();
 
-
             }
             label14.Text = "Logged in as: " + this.temp;
             label12.Text = "Online";
@@ -73,31 +72,47 @@ namespace AplikacjaSzkoleniowa
                     {
                         using (db = new DataClasses1DataContext())
                         {
-                            participants p = new participants();
-                            p.name = textBox1.Text;
-                            p.surname = textBox2.Text;
-                            p.email = textBox3.Text;
-                            p.phone = textBox4.Text;
-                            p.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
-                            p.city = textBox5.Text;
-                            p.street = textBox6.Text;
-                            p.postal_code = textBox7.Text;
-                            p.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
-                            p.id_offers = Int32.Parse((comboBox3.SelectedValue.ToString()));
+                            
 
-                            db.participants.InsertOnSubmit(p);
-                            db.SubmitChanges();
+                            var free = (from f in db.view_participants_trainings
+                                        where f.id_trainings == Decimal.Parse(comboBox4.SelectedValue.ToString())
+                                        select f.count_free).Single();
 
-                            var last_participants_id = db.participants.ToArray().LastOrDefault().id_participants;
+                            if (free > 0)
+                            {
+                                participants p = new participants();
+                                p.name = textBox1.Text;
+                                p.surname = textBox2.Text;
+                                p.email = textBox3.Text;
+                                p.phone = textBox4.Text;
+                                p.id_countries = Int32.Parse((comboBox1.SelectedValue.ToString()));
+                                p.city = textBox5.Text;
+                                p.street = textBox6.Text;
+                                p.postal_code = textBox7.Text;
+                                p.id_education = Int32.Parse((comboBox2.SelectedValue.ToString()));
+                                p.id_offers = Int32.Parse((comboBox3.SelectedValue.ToString()));
 
-                            participants_trainings pt = new participants_trainings();
-                            pt.id_participants = Int32.Parse((last_participants_id.ToString()));
-                            pt.id_trainings = Int32.Parse((comboBox4.SelectedValue.ToString()));
-                            db.participants_trainings.InsertOnSubmit(pt);
-                            db.SubmitChanges();
+                                db.participants.InsertOnSubmit(p);
+                                db.SubmitChanges();
+
+                                var last_participants_id = db.participants.ToArray().LastOrDefault().id_participants;
+
+                                participants_trainings pt = new participants_trainings();
+                                pt.id_participants = Int32.Parse((last_participants_id.ToString()));
+                                pt.id_trainings = Int32.Parse((comboBox4.SelectedValue.ToString()));
+                                db.participants_trainings.InsertOnSubmit(pt);
+                                db.SubmitChanges();
+                                MessageBox.Show("New training added!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("There are no places for training!");
+                            }
+
+                            
 
                         }
-                        MessageBox.Show("New training added!");
+                      
                     }  
                 }
                 else

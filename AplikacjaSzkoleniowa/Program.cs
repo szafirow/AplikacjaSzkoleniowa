@@ -16,7 +16,7 @@ namespace AplikacjaSzkoleniowa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_training_base("Sss"));
+            Application.Run(new Form_participant_base("Sss"));
         }
     }
 }

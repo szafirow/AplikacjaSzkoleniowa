@@ -94,7 +94,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form_training_data";
-            this.Text = "Form_training_data";
+            this.Text = "List of training participants";
             this.Load += new System.EventHandler(this.Form_training_data_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

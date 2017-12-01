@@ -44,8 +44,8 @@ namespace AplikacjaSzkoleniowa
                 if (textBox1.Text.Length != 0 
                     && textBox2.Text.Length != 0
                     && textBox3.Text.Length != 0
-                    && textBox4.Text.Length != 0
-                    && textBox5.Text.Length != 0
+                    && textBox4.Text.Length != 0 && textBox4.Text.Length > 0
+                    && textBox5.Text.Length != 0 && textBox5.Text.Length > 0
                     && (textBox4.Text.All(c => Char.IsNumber(c)))
                     && (textBox5.Text.All(c => Char.IsNumber(c)))
                     )

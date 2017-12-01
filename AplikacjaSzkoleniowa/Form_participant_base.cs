@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace AplikacjaSzkoleniowa
 {
     public partial class Form_participant_base : Form
@@ -186,5 +187,11 @@ namespace AplikacjaSzkoleniowa
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // generowanie excela
+           
+
+        }
     }
 }

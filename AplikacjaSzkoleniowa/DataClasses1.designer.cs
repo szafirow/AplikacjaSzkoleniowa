@@ -2280,6 +2280,8 @@ namespace AplikacjaSzkoleniowa
 	public partial class view_participants_trainings
 	{
 		
+		private System.Nullable<decimal> _id_trainings;
+		
 		private string _name;
 		
 		private System.Nullable<int> _count_save;
@@ -2290,6 +2292,22 @@ namespace AplikacjaSzkoleniowa
 		
 		public view_participants_trainings()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trainings", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> id_trainings
+		{
+			get
+			{
+				return this._id_trainings;
+			}
+			set
+			{
+				if ((this._id_trainings != value))
+				{
+					this._id_trainings = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(255)")]

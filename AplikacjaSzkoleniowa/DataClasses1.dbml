@@ -117,6 +117,7 @@
   </Table>
   <Table Name="dbo.view_participants_trainings" Member="view_participants_trainings">
     <Type Name="view_participants_trainings">
+      <Column Name="id_trainings" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="count_save" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="count_free" Type="System.Decimal" DbType="Decimal(11,0)" CanBeNull="true" />

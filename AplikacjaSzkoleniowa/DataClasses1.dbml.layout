@@ -97,10 +97,10 @@
         <elementListCompartment Id="1467f872-9d05-482c-9cf9-ae1d887e6365" absoluteBounds="1.5150000000000001, 12.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="19f68cbd-a0ca-440c-aafd-a2b0e5d66992" absoluteBounds="3.875, 12.125, 2, 1.5785953776041666">
+    <classShape Id="307ca654-dcc7-44b4-a739-594192e24993" absoluteBounds="3.875, 12.125, 2, 1.7708968098958331">
       <DataClassMoniker Name="/DataClasses1DataContext/view_participants_trainings" />
       <nestedChildShapes>
-        <elementListCompartment Id="5f40baee-5d96-4a78-ba8f-061adeb111c5" absoluteBounds="3.8899999999999997, 12.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f2218fd7-e0c1-412a-9739-3d0c4bfac640" absoluteBounds="3.8899999999999997, 12.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
