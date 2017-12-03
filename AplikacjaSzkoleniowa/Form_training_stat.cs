@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AplikacjaSzkoleniowa
 {
@@ -39,6 +41,33 @@ namespace AplikacjaSzkoleniowa
             Form_list_all form_list_all = new Form_list_all(this.temp);
             form_list_all.Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // generowanie excela
+            Microsoft.Office.Interop.Excel.Application xla = new Microsoft.Office.Interop.Excel.Application();
+            Workbook xb = xla.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet ws = (Worksheet)xla.ActiveSheet;
+
+            xla.Visible = true;
+
+            ws.Cells[1, 1] = "LP";
+            ws.Cells[1, 2] = "Name";
+            ws.Cells[1, 3] = "Count_save";
+            ws.Cells[1, 4] = "Count_free";
+            ws.Cells[1, 5] = "Slot";
+
+
+
+            for (int j = 2; j <= dataGridView1.Rows.Count + 1; j++)
+            {
+                for (int i = 2; i <= 5; i++)
+                {
+                    ws.Cells[j, 1] = j - 1;
+                    ws.Cells[j, i] = dataGridView1.Rows[j - 2].Cells[i - 1].Value;
+                }
+            }
         }
     }
 }

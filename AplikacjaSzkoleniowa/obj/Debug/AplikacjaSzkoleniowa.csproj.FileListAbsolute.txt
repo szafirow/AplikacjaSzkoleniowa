@@ -16,3 +16,4 @@ C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug
 C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_participant_base.resources
 C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_training_base.resources
 C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.Form_training_data.resources
+C:\Users\patryk\source\repos\AplikacjaSzkoleniowa\AplikacjaSzkoleniowa\obj\Debug\AplikacjaSzkoleniowa.csproj.ResolveComReference.cache

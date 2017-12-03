@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_training_data));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1215, 21);
+            this.label1.Location = new System.Drawing.Point(1218, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 1;
@@ -58,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1486, 21);
+            this.label2.Location = new System.Drawing.Point(1489, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(1552, 21);
+            this.label3.Location = new System.Drawing.Point(1555, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 3;
@@ -83,15 +85,28 @@
             this.dataGridView1.Size = new System.Drawing.Size(1602, 476);
             this.dataGridView1.TabIndex = 4;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(74, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(29, 29);
+            this.button2.TabIndex = 5;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form_training_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1626, 547);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Form_training_data";
             this.Text = "List of training participants";
@@ -109,5 +124,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
     }
 }
